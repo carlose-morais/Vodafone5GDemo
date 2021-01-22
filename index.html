@@ -26,29 +26,20 @@
     <div class="webgl-content" style="width: 100%; height: 100%">
       <div id="unityContainer" style="width: 100%; height: 100%"></div>
       <div class="footer">
-        <div class="webgl-logo"></div>
-        <button class="entervr" id="entervr" value="Enter VR" disabled>VR</button>
-        <button class="enterar" id="enterar" value="Enter AR" disabled>AR</button>
-       <div class="webxr-link">From <a href="https://www.youtube.com/channel/UCCxGucNZMsIEQ_qc51gf72w?view_as=subscriber" target="_blank" title="WebXR Export">AllinReality</a></div>
+        <button class="enterar" id="enterar" value="Start" disabled>START</button>
+       <div class="webxr-link"><a href="http://nimest.tech" target="_blank" title="NimestTech">Nimest Tech</a></div>
         <div class="title">Unity-WebXR-Export</div>
       </div>
     </div>
     <script>
       let enterARButton = document.getElementById('enterar');
-      let enterVRButton = document.getElementById('entervr');
       
       document.addEventListener('onARSupportedCheck', function (event) {
         enterARButton.disabled = !event.detail.supported;
       }, false);
-      document.addEventListener('onVRSupportedCheck', function (event) {
-        enterVRButton.disabled = !event.detail.supported;
-      }, false);
       
       enterARButton.addEventListener('click', function (event) {
         document.dispatchEvent(new CustomEvent('toggleAR', {}));
-      }, false);
-      enterVRButton.addEventListener('click', function (event) {
-        document.dispatchEvent(new CustomEvent('toggleVR', {}));
       }, false);
     </script>
     <script src="gl-matrix-min.js"></script>
